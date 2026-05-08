@@ -1,0 +1,609 @@
+/* =========================
+   ELITE LUDO FULL STYLE
+========================= */
+
+/* RESET */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+/* BODY */
+
+body{
+  background:#121212;
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* LOADING */
+
+#loadingScreen{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#0d0d0d;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:99999;
+}
+
+.loaderBox{
+  text-align:center;
+}
+
+.loaderBox h1{
+  font-size:52px;
+  color:#ff9800;
+  margin-bottom:10px;
+}
+
+.loaderBox p{
+  color:#999;
+}
+
+/* TOP BAR */
+
+.topBar{
+  width:100%;
+  padding:18px 25px;
+  background:#181818;
+  border-bottom:1px solid #2b2b2b;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#ff9800;
+}
+
+.topActions{
+  display:flex;
+  gap:10px;
+}
+
+.topActions button{
+  padding:12px 18px;
+  border:none;
+  border-radius:12px;
+  background:#2a2a2a;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.2s;
+}
+
+.topActions button:hover{
+  transform:scale(1.05);
+}
+
+/* MAIN GAME */
+
+.gameContainer{
+  width:100%;
+  min-height:calc(100vh - 80px);
+
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+
+  gap:30px;
+  padding:25px;
+
+  flex-wrap:wrap;
+}
+
+/* LEFT PANEL */
+
+.leftPanel{
+  width:320px;
+
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* CARDS */
+
+.statusCard,
+.timerCard,
+.diceContainer,
+.playerCard{
+
+  background:#1b1b1b;
+  border:1px solid #2d2d2d;
+  border-radius:18px;
+  padding:18px;
+
+}
+
+.statusCard h2{
+  color:#ff9800;
+  margin-bottom:10px;
+}
+
+.statusCard p{
+  color:#aaa;
+}
+
+.timerCard{
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* PLAYERS */
+
+#playersContainer{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.playerCard{
+  transition:0.3s;
+}
+
+.playerName{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.playerStatus{
+  margin-top:8px;
+  color:#aaa;
+}
+
+/* ACTIVE TURN */
+
+.activeTurn{
+  border:2px solid #ff9800;
+  box-shadow:
+  0 0 15px #ff980055;
+}
+
+/* PLAYER COLORS */
+
+.redPlayer{
+  border-left:8px solid red;
+}
+
+.greenPlayer{
+  border-left:8px solid limegreen;
+}
+
+.yellowPlayer{
+  border-left:8px solid gold;
+}
+
+.bluePlayer{
+  border-left:8px solid deepskyblue;
+}
+
+/* DICE */
+
+.diceContainer{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+}
+
+#dice{
+  width:120px;
+  height:120px;
+
+  background:white;
+  color:black;
+
+  border-radius:22px;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:70px;
+  font-weight:bold;
+
+  box-shadow:
+  0 0 20px rgba(255,255,255,0.15);
+
+  transition:0.2s;
+}
+
+/* ROLL BUTTON */
+
+#rollDiceBtn{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:16px;
+
+  background:#ff9800;
+  color:black;
+
+  font-size:18px;
+  font-weight:bold;
+
+  cursor:pointer;
+  transition:0.2s;
+}
+
+#rollDiceBtn:hover{
+  transform:translateY(-2px);
+}
+
+/* BOARD SECTION */
+
+.boardSection{
+  flex:1;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* BOARD WRAPPER */
+
+#ludoBoardWrapper{
+  position:relative;
+
+  width:700px;
+  height:700px;
+
+  max-width:95vw;
+  max-height:95vw;
+}
+
+/* BOARD IMAGE */
+
+#boardImage{
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  user-select:none;
+  pointer-events:none;
+}
+
+/* BOARD GRID */
+
+#ludoBoard{
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(15,1fr);
+
+  grid-template-rows:
+  repeat(15,1fr);
+}
+
+/* BOARD CELL */
+
+.boardCell{
+  position:relative;
+}
+
+/* TOKENS */
+
+.token{
+  width:75%;
+  height:75%;
+
+  position:absolute;
+  top:50%;
+  left:50%;
+
+  transform:
+  translate(-50%,-50%);
+
+  border-radius:50%;
+
+  cursor:pointer;
+  z-index:50;
+
+  transition:0.2s;
+}
+
+.token:hover{
+  transform:
+  translate(-50%,-50%)
+  scale(1.12);
+}
+
+/* TOKEN IMAGES */
+
+.redToken{
+  background:
+  url("assets/tokens/red.png");
+
+  background-size:cover;
+  background-position:center;
+}
+
+.greenToken{
+  background:
+  url("assets/tokens/green.png");
+
+  background-size:cover;
+  background-position:center;
+}
+
+.yellowToken{
+  background:
+  url("assets/tokens/yellow.png");
+
+  background-size:cover;
+  background-position:center;
+}
+
+.blueToken{
+  background:
+  url("assets/tokens/blue.png");
+
+  background-size:cover;
+  background-position:center;
+}
+
+/* SAFE STAR */
+
+.safeStar{
+  position:absolute;
+  top:50%;
+  left:50%;
+
+  transform:
+  translate(-50%,-50%);
+
+  color:white;
+  font-size:18px;
+  z-index:2;
+}
+
+/* WINNER POPUP */
+
+#winnerPopup{
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  background:
+  rgba(0,0,0,0.8);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:999999;
+}
+
+.winnerContent{
+  width:90%;
+  max-width:450px;
+
+  background:#1d1d1d;
+
+  border-radius:25px;
+  padding:35px;
+
+  text-align:center;
+
+  border:2px solid #ff9800;
+}
+
+.winnerContent h1{
+  font-size:42px;
+  margin-bottom:20px;
+  color:#ff9800;
+}
+
+.winnerContent h2{
+  margin-bottom:25px;
+  color:white;
+}
+
+.winnerContent button{
+  width:100%;
+
+  padding:16px;
+
+  border:none;
+  border-radius:16px;
+
+  background:#ff9800;
+  color:black;
+
+  font-size:18px;
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+/* TOAST */
+
+.toastMessage{
+  position:fixed;
+  bottom:30px;
+  left:50%;
+
+  transform:
+  translateX(-50%);
+
+  background:#222;
+  color:white;
+
+  padding:15px 25px;
+
+  border-radius:14px;
+
+  opacity:0;
+  transition:0.3s;
+
+  z-index:9999;
+}
+
+.showToast{
+  opacity:1;
+}
+
+/* TIMER WARNING */
+
+.timerDanger{
+  color:red;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+
+  0%{
+    opacity:1;
+  }
+
+  50%{
+    opacity:0.4;
+  }
+
+  100%{
+    opacity:1;
+  }
+
+}
+
+/* ANIMATIONS */
+
+.turnGlow{
+  animation:turnGlow 1s infinite alternate;
+}
+
+@keyframes turnGlow{
+
+  from{
+    box-shadow:
+    0 0 10px #ff980055;
+  }
+
+  to{
+    box-shadow:
+    0 0 25px #ff9800;
+  }
+
+}
+
+.boardShake{
+  animation:shake 0.4s;
+}
+
+@keyframes shake{
+
+  0%{
+    transform:translateX(0);
+  }
+
+  25%{
+    transform:translateX(-5px);
+  }
+
+  50%{
+    transform:translateX(5px);
+  }
+
+  75%{
+    transform:translateX(-5px);
+  }
+
+  100%{
+    transform:translateX(0);
+  }
+
+}
+
+.tokenBounce{
+  animation:bounce 0.4s;
+}
+
+@keyframes bounce{
+
+  0%{
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+  }
+
+  50%{
+    transform:
+    translate(-50%,-50%)
+    scale(1.2);
+  }
+
+  100%{
+    transform:
+    translate(-50%,-50%)
+    scale(1);
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+  .gameContainer{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .leftPanel{
+    width:100%;
+    max-width:700px;
+  }
+
+}
+
+@media(max-width:700px){
+
+  #ludoBoardWrapper{
+    width:95vw;
+    height:95vw;
+  }
+
+  .logo{
+    font-size:22px;
+  }
+
+  #dice{
+    width:90px;
+    height:90px;
+    font-size:55px;
+  }
+
+  .topBar{
+    padding:15px;
+  }
+
+}

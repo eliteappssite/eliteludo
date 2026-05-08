@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8"/>
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0"/>
+
+  <title>Elite Ludo</title>
+
+  <!-- CSS -->
+
+  <link rel="stylesheet"
+  href="style.css"/>
+
+</head>
+
+<body>
+
+  <!-- Loading Screen -->
+
+  <div id="loadingScreen">
+
+    <div class="loaderBox">
+
+      <h1>ELITE LUDO</h1>
+
+      <p>
+        Loading Professional Ludo...
+      </p>
+
+      <div class="loader"></div>
+
+    </div>
+
+  </div>
+
+  <!-- Main Menu -->
+
+  <div id="mainMenu">
+
+    <!-- Top -->
+
+    <div class="topBar">
+
+      <div class="logo">
+
+        ELITE LUDO
+
+      </div>
+
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="menuContainer">
+
+      <!-- Left Side -->
+
+      <div class="leftPanel">
+
+        <div class="title">
+
+          ONLINE & OFFLINE<br>
+          LUDO GAME
+
+        </div>
+
+        <div class="subtitle">
+
+          Professional Multiplayer
+          Browser Ludo Experience
+
+        </div>
+
+        <!-- Buttons -->
+
+        <div class="menuButtons">
+
+          <button
+          class="menuBtn"
+          id="playOfflineBtn">
+
+            PLAY OFFLINE
+
+          </button>
+
+          <button
+          class="menuBtn"
+          id="playOnlineBtn">
+
+            PLAY ONLINE
+
+          </button>
+
+          <button
+          class="menuBtn secondaryBtn"
+          id="howToPlayBtn">
+
+            HOW TO PLAY
+
+          </button>
+
+        </div>
+
+      </div>
+
+      <!-- Right Side -->
+
+      <div class="rightPanel">
+
+        <!-- Player Select -->
+
+        <div class="card">
+
+          <div class="cardTitle">
+
+            SELECT PLAYERS
+
+          </div>
+
+          <div class="playerOptions">
+
+            <button
+            class="playerBtn active"
+            data-players="2">
+
+              2 PLAYERS
+
+            </button>
+
+            <button
+            class="playerBtn"
+            data-players="3">
+
+              3 PLAYERS
+
+            </button>
+
+            <button
+            class="playerBtn"
+            data-players="4">
+
+              4 PLAYERS
+
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- Room -->
+
+        <div class="card">
+
+          <div class="cardTitle">
+
+            ONLINE ROOM
+
+          </div>
+
+          <input
+          type="text"
+          id="roomCodeInput"
+          placeholder="ENTER ROOM CODE"/>
+
+          <div class="roomButtons">
+
+            <button
+            class="roomBtn"
+            id="createRoomBtn">
+
+              CREATE ROOM
+
+            </button>
+
+            <button
+            class="roomBtn joinBtn"
+            id="joinRoomBtn">
+
+              JOIN ROOM
+
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- User Name -->
+
+        <div class="card">
+
+          <div class="cardTitle">
+
+            PLAYER NAME
+
+          </div>
+
+          <input
+          type="text"
+          id="playerNameInput"
+          placeholder="ENTER YOUR NAME"/>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+
+    <div class="footer">
+
+      <div>
+
+        Developed By Tarun
+
+      </div>
+
+      <div>
+
+        Professional HTML CSS JS Ludo
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- How To Play Modal -->
+
+  <div id="howToPlayModal"
+  class="modal">
+
+    <div class="modalContent">
+
+      <div class="modalTitle">
+
+        HOW TO PLAY
+
+      </div>
+
+      <div class="rules">
+
+        • Roll 6 to unlock token.<br><br>
+
+        • Reach all tokens to home
+        before opponents.<br><br>
+
+        • Kill opponent tokens
+        by landing on them.<br><br>
+
+        • Safe zones protect tokens.<br><br>
+
+        • Roll 6 to get extra turn.
+
+      </div>
+
+      <button
+      id="closeModalBtn"
+      class="closeBtn">
+
+        CLOSE
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- Audio -->
+
+  <audio
+  id="clickSound"
+  src="assets/sounds/click.mp3">
+  </audio>
+
+  <!-- Scripts -->
+
+  <script src="app.js"></script>
+
+</body>
+</html>

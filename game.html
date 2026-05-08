@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport"
+  content="width=device-width, initial-scale=1.0"/>
+
+  <title>Elite Ludo</title>
+
+  <link rel="stylesheet"
+  href="style.css"/>
+
+</head>
+
+<body>
+
+  <!-- LOADING -->
+
+  <div id="loadingScreen">
+
+    <div class="loaderBox">
+
+      <h1>ELITE LUDO</h1>
+
+      <p>Loading Game...</p>
+
+    </div>
+
+  </div>
+
+  <!-- TOP BAR -->
+
+  <header class="topBar">
+
+    <div class="logo">
+
+      🎲 ELITE LUDO
+
+    </div>
+
+    <div class="topActions">
+
+      <button id="soundToggleBtn">
+
+        🔊
+
+      </button>
+
+      <button id="restartBtn"
+      onclick="restartGameFromWin()">
+
+        Restart
+
+      </button>
+
+    </div>
+
+  </header>
+
+  <!-- MAIN -->
+
+  <main class="gameContainer">
+
+    <!-- LEFT -->
+
+    <section class="leftPanel">
+
+      <!-- TURN -->
+
+      <div class="statusCard">
+
+        <h2 id="turnText">
+
+          RED's Turn
+
+        </h2>
+
+        <p id="gameStatus">
+
+          Welcome To Elite Ludo
+
+        </p>
+
+      </div>
+
+      <!-- TIMER -->
+
+      <div class="timerCard">
+
+        ⏳ Timer:
+        <span id="timerText">
+
+          20
+
+        </span>
+
+      </div>
+
+      <!-- PLAYERS -->
+
+      <div id="playersContainer">
+
+      </div>
+
+      <!-- DICE -->
+
+      <div class="diceContainer">
+
+        <div id="dice">
+
+          ⚀
+
+        </div>
+
+        <button id="rollDiceBtn">
+
+          Roll Dice
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- BOARD -->
+
+    <section class="boardSection">
+
+      <div id="ludoBoardWrapper">
+
+        <img
+        src="assets/board.png"
+
+        id="boardImage"
+
+        draggable="false">
+
+        <div id="ludoBoard">
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- WINNER POPUP -->
+
+  <div id="winnerPopup">
+
+    <div class="winnerContent">
+
+      <h1>
+
+        🏆 WINNER
+
+      </h1>
+
+      <h2 id="winnerText">
+
+        RED WINS!
+
+      </h2>
+
+      <button
+      onclick="restartGameFromWin()">
+
+        Play Again
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- AUDIO -->
+
+  <audio id="clickSound"
+  src="assets/sounds/click.mp3">
+  </audio>
+
+  <!-- MAIN APP -->
+
+  <script src="app.js"></script>
+
+  <!-- GAME FILES -->
+
+  <script src="js/ui.js"></script>
+
+  <script src="js/animations.js"></script>
+
+  <script src="js/sounds.js"></script>
+
+  <script src="js/board.js"></script>
+
+  <script src="js/dice.js"></script>
+
+  <script src="js/players.js"></script>
+
+  <script src="js/tokens.js"></script>
+
+  <script src="js/movement.js"></script>
+
+  <script src="js/rules.js"></script>
+
+  <script src="js/turns.js"></script>
+
+  <script src="js/collisions.js"></script>
+
+  <script src="js/safezones.js"></script>
+
+  <script src="js/homes.js"></script>
+
+  <script src="js/win.js"></script>
+
+  <!-- START GAME -->
+
+  <script>
+
+    window.addEventListener(
+    "load",
+
+    ()=>{
+
+      initializeUI();
+
+      initializePlayers();
+
+      initializeSafeZones();
+
+      renderTokens();
+
+      startTurn();
+
+      hideLoadingScreen();
+
+      startBackgroundMusic();
+
+    });
+
+  </script>
+
+</body>
+</html>
